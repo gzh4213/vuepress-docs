@@ -22,9 +22,7 @@ module.exports = {
       },
       { text: 'GitHub', link: 'https://github.com/gzh4213', target: '_blank', rel: 'noopener noreferrer'}
     ],
-    sidebar: 'auto'
-  },
-  themeConfig: {
+    sidebar: 'auto',
     search: true,
     searchMaxSuggestions: 10
   },

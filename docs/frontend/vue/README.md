@@ -1,7 +1,7 @@
 ---
-sidebar: auto,
-tags: 
-  - Vue
+# sidebar: auto,
+# tags: 
+#   - Vue
 ---
 # 标题1
 ## 子标题1
