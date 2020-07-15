@@ -24,7 +24,8 @@ module.exports = {
     ],
     sidebar: 'auto',
     search: true,
-    searchMaxSuggestions: 10
+    searchMaxSuggestions: 10,
+    lastUpdated: 'Last Updated', // string | boolean
   },
-  // lastUpdated: 'Last Updated', // string | boolean
+  
 }
