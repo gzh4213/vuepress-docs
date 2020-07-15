@@ -1,6 +1,6 @@
 module.exports = {
-  title: '文档',
-  description: '学习资料集合',
+  title: 'frontEnd',
+  description: "Leo's记录前端学习的个人文档站点",
   head: [
     ['link', { rel: 'icon', href: './public/logo.png'}]
   ],
@@ -20,9 +20,21 @@ module.exports = {
           { text: 'React', link: '/frontend/react/' }
         ]
       },
+      { text: '教程', link: '/tutorial/'},
       { text: 'GitHub', link: 'https://github.com/gzh4213', target: '_blank', rel: 'noopener noreferrer'}
     ],
-    sidebar: 'auto',
+    sidebar: {
+      '/tutorial/': [
+        {
+          title: '教程',
+          collapsable: false,
+          children: [
+            '',
+            'pac'
+          ]
+        }
+      ]
+    },
     search: true,
     searchMaxSuggestions: 10,
     lastUpdated: 'Last Updated', // string | boolean

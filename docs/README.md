@@ -1,9 +1,9 @@
 ---
 home: true
-# heroImage: ./logo.png
-heroText: Hero 标题
-tagline: Hero 副标题
-actionText: 快速上手
+heroImage: ./Atlas.JPG
+heroText: 前端文档
+tagline: 记录前端学习的个人文档站点
+actionText: 开始学习
 actionLink: /frontend/vue/
 features:
 - title: 简洁至上
