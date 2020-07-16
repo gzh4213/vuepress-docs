@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'frontEnd',
+  title: 'front-end',
   description: "Leo's记录前端学习的个人文档站点",
   head: [
     ['link', { rel: 'icon', href: './public/logo.png'}]
@@ -20,10 +20,26 @@ module.exports = {
           { text: 'React', link: '/frontend/react/' }
         ]
       },
+      {
+        text: '更多',
+        items: [
+          { text: '开发辅助', link: '/dev-helper/'}
+        ]
+      },
       { text: '教程', link: '/tutorial/'},
       { text: 'GitHub', link: 'https://github.com/gzh4213', target: '_blank', rel: 'noopener noreferrer'}
     ],
     sidebar: {
+      '/frontend/vue/': [
+        {
+          title: 'Vue',
+          collapsable: false,
+          children: [
+            '',
+            'one'
+          ]
+        }
+      ],
       '/tutorial/': [
         {
           title: '教程',
@@ -31,6 +47,16 @@ module.exports = {
           children: [
             '',
             'pac'
+          ]
+        }
+      ],
+      '/dev-helper/': [
+        {
+          title: '开发辅助',
+          collapsable: false,
+          children: [
+            '',
+            'other'
           ]
         }
       ]
