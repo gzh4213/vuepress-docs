@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: deploy blog
+name: deploy
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -28,3 +28,4 @@ jobs:
         TARGET_BRANCH: master
         BUILD_SCRIPT: npm install && npm run build
         BUILD_DIR: docs/.vuepress/dist/
+        CNAME: docs.gzh4213.com
