@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: ./Atlas.JPG
+# heroImage: ./Atlas.JPGs
 heroText: 前端文档
 tagline: 记录前端学习的个人文档站点
 actionText: 开始学习
