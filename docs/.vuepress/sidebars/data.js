@@ -4,7 +4,8 @@ module.exports =  [
   {
     title: 'js',
     children: [
-      '/data/js'
+      '/data/js/',
+      '/data/js/js'
     ]
   },
   {
