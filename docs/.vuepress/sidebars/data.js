@@ -9,6 +9,12 @@ module.exports =  [
     ]
   },
   {
+    title: 'css',
+    children: [
+      '/data/css/'
+    ]
+  },
+  {
     title: 'redis',
     children: [
       '/data/redis'
