@@ -15,6 +15,6 @@ module.exports = [
 	},
 	{
 		title: 'sql',
-		children: ['/data/sql'],
+		children: ['/data/sql/'],
 	},
 ]
