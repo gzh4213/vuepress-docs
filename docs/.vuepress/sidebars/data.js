@@ -17,4 +17,8 @@ module.exports = [
 		title: 'sql',
 		children: ['/data/sql/'],
 	},
+	{
+		title: 'node',
+		children: ['/data/node/']
+	}
 ]

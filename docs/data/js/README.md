@@ -9,3 +9,4 @@
 ## [web 前端面试都问什么](https://mp.weixin.qq.com/s/uaIi7TEpgtFFwaeCBuqWZQ)
 
 ## [JS 中的 for 循环——你可能不知道的点](https://mp.weixin.qq.com/s/K6AFok0k0FEOrfMCS0cVOw)
+## [javascript中的闭包这一篇就够了](https://mp.weixin.qq.com/s/bIgNn_YnSNco_xhnAT8Bag)
