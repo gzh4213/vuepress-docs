@@ -31,6 +31,10 @@ module.exports = {
 				items: [{ text: 'Jest', link: '/test/jest/' }],
 			},
 			{
+				text: 'database',
+				link: '/database/',
+			},
+			{
 				text: '更多',
 				items: [
 					{ text: '开发辅助', link: '/dev-helper/' },
