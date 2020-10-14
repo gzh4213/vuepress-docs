@@ -18,6 +18,7 @@ module.exports = {
 		nav: [
 			// 导航栏设置
 			{ text: '首页', link: '/' },
+			{ text: 'typesript', link: '/ts/'},
 			{ text: '资料', link: '/data/' },
 			{
 				text: '前端',
