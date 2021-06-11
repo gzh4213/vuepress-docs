@@ -13,7 +13,7 @@ cd docs/.vuepress/dist
 touch CNAME
 
 # 向CNAME中写域名
-echo 'docs1.gzh4213.com' > CNAME
+echo 'docs.gzh4213.com' > CNAME
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
 

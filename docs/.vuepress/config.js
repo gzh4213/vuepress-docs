@@ -1,9 +1,3 @@
-const dataSide = require('./sidebars/data')
-const vueSide = require('./sidebars/vue')
-const testSide = require('./sidebars/test')
-const tutorialSide = require('./sidebars/tutorial')
-const devSide = require('./sidebars/dev-helper')
-
 module.exports = {
 	title: 'front-end',
 	description: "Leo's前端学习文档",
@@ -38,8 +32,7 @@ module.exports = {
 			{
 				text: '更多',
 				items: [
-					{ text: '开发辅助', link: '/dev-helper/' },
-					{ text: 'vuepresss', link: '/vuepresss/' },
+					{ text: 'vuepresss', link: '/vuepress/' },
 				],
 			},
 			{ text: '教程', link: '/tutorial/' },
@@ -53,11 +46,11 @@ module.exports = {
 		sidebarDepth: 3,
 		sidebar: {
 			// 侧边栏设置
-			'/data/': dataSide,
-			'/frontend/vue/': vueSide,
-			'/test/jest/': testSide,
-			'/tutorial/': tutorialSide,
-			'/dev-helper/': devSide,
+			'/data/': require('./sidebars/data'),
+			'/frontend/vue/': require('./sidebars/vue'),
+			'/test/jest/': require('./sidebars/test'),
+			'/tutorial/': require('./sidebars/tutorial'),
+			'/vuepress/': require('./sidebars/vuepress')
 		},
 		search: true,
 		searchMaxSuggestions: 10,
