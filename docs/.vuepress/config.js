@@ -32,6 +32,7 @@ module.exports = {
 			{
 				text: '更多',
 				items: [
+					{ text: 'npm', link: '/npm/' },
 					{ text: 'vuepresss', link: '/vuepress/' },
 				],
 			},
