@@ -22,6 +22,12 @@ module.exports = {
 				],
 			},
 			{
+				text: '工程化',
+				items: [
+					{ text: 'rollup', link: '/rollup/' },
+				],
+			},
+			{
 				text: '测试',
 				items: [{ text: 'Jest', link: '/test/jest/' }],
 			},
