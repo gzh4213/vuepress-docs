@@ -64,6 +64,13 @@ module.exports = {
 		lastUpdated: '最后更新', // string | boolean
 	},
 	plugins: [
+		['@vuepress/back-to-top'],
+		// [
+		// 	'@vuepress/blog',
+		// 	{
+		// 		/* options */
+		// 	},
+		// ],
 		[
 			'vuepress-plugin-comment',
 			{
