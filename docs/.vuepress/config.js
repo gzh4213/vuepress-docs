@@ -57,7 +57,8 @@ module.exports = {
 			'/frontend/vue/': require('./sidebars/vue'),
 			'/test/jest/': require('./sidebars/test'),
 			'/tutorial/': require('./sidebars/tutorial'),
-			'/vuepress/': require('./sidebars/vuepress')
+			'/vuepress/': require('./sidebars/vuepress'),
+			'/rollup/': require('./sidebars/rollup')
 		},
 		search: true,
 		searchMaxSuggestions: 10,
