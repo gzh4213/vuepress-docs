@@ -25,6 +25,7 @@ module.exports = {
 				text: '工程化',
 				items: [
 					{ text: 'rollup', link: '/rollup/' },
+					{ text: 'vite', link: '/vite/' },
 				],
 			},
 			{
@@ -83,5 +84,5 @@ module.exports = {
 				},
 			},
 		],
-	],
+	]
 }
