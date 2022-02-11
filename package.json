@@ -13,7 +13,7 @@
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-blog": "^1.9.4",
-    "vuepress": "^1.8.2"
+    "vuepress": "^1.9.7"
   },
   "dependencies": {
     "vuepress-plugin-comment": "^0.7.3"

@@ -4,7 +4,8 @@ module.exports = [  // 教程模块
     collapsable: false,
     children: [
       '',
-      'pac'
+      'pac',
+      'ssh'
     ]
   }
 ]
