@@ -12,13 +12,22 @@ module.exports = {
 		nav: [
 			// 导航栏设置
 			{ text: '首页', link: '/' },
-			{ text: 'typesript', link: '/ts/'},
-			{ text: '资料', link: '/data/' },
 			{
 				text: '前端',
 				items: [
+					{
+						text: '原生js',
+						link: '/frontend/js/'
+					},
 					{ text: 'Vue', link: '/frontend/vue/' },
 					{ text: 'React', link: '/frontend/react/' },
+					{ text: 'typesript', link: '/ts/'},
+					{ text: 'npm', link: '/npm/' },
+					{ text: '资料', link: '/data/' },
+					{
+						text: '面试',
+						link: '/interview/'
+					}
 				],
 			},
 			{
@@ -33,17 +42,16 @@ module.exports = {
 				items: [{ text: 'Jest', link: '/test/jest/' }],
 			},
 			{
-				text: 'database',
+				text: '数据库',
 				link: '/database/',
 			},
 			{
 				text: '更多',
 				items: [
-					{ text: 'npm', link: '/npm/' },
 					{ text: 'vuepresss', link: '/vuepress/' },
+					{ text: '问题记录', link: '/tutorial/' },
 				],
 			},
-			{ text: '教程', link: '/tutorial/' },
 			{
 				text: 'GitHub',
 				link: 'https://github.com/gzh4213',
@@ -51,7 +59,7 @@ module.exports = {
 				rel: 'noopener noreferrer',
 			},
 		],
-		sidebarDepth: 3,
+		sidebarDepth: 4,
 		sidebar: {
 			// 侧边栏设置
 			'/data/': require('./sidebars/data'),
@@ -59,7 +67,10 @@ module.exports = {
 			'/test/jest/': require('./sidebars/test'),
 			'/tutorial/': require('./sidebars/tutorial'),
 			'/vuepress/': require('./sidebars/vuepress'),
-			'/rollup/': require('./sidebars/rollup')
+			'/rollup/': require('./sidebars/rollup'),
+			'/interview/': require('./sidebars/interview'),
+			'/frontend/js/': require('./sidebars/js'),
+			'/ts/': require('./sidebars/ts')
 		},
 		search: true,
 		searchMaxSuggestions: 10,

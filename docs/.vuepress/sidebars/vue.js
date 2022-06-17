@@ -1,10 +1,10 @@
 module.exports = [
   '/frontend/vue/',
   {
-    title: 'one',
+    title: 'API参考',
     collapsable: false,
     children: [
-      'one'
+      'API'
     ]
   }
 ]
