@@ -35,6 +35,7 @@ module.exports = {
 				items: [
 					{ text: 'rollup', link: '/rollup/' },
 					{ text: 'vite', link: '/vite/' },
+					{ text: 'webpack', link: '/webpack/' },
 				],
 			},
 			{
@@ -70,7 +71,8 @@ module.exports = {
 			'/rollup/': require('./sidebars/rollup'),
 			'/interview/': require('./sidebars/interview'),
 			'/frontend/js/': require('./sidebars/js'),
-			'/ts/': require('./sidebars/ts')
+			'/ts/': require('./sidebars/ts'),
+			'/webpack/': require('./sidebars/webpack')
 		},
 		search: true,
 		searchMaxSuggestions: 10,
