@@ -496,3 +496,5 @@ Function.prototype.myApply = function(context) {
 }
 
 ````
+
+## JS执行机制

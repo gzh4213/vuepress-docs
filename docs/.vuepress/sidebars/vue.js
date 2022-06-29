@@ -6,5 +6,12 @@ module.exports = [
     children: [
       'API'
     ]
+  },
+  {
+    title: 'Pinia',
+    collapsable: false,
+    children: [
+      'Pinia'
+    ]
   }
 ]

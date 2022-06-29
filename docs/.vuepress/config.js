@@ -31,6 +31,23 @@ module.exports = {
 				],
 			},
 			{
+				text: '后端',
+				items: [
+					{
+						text: 'PM2',
+						link: '/PM2/'
+					},
+					{
+						text: 'LINUX',
+						link: '/Linux/'
+					},
+					{
+						text: 'Nginx',
+						link: '/Nginx/'
+					}
+				]
+			},
+			{
 				text: '工程化',
 				items: [
 					{ text: 'rollup', link: '/rollup/' },
@@ -39,8 +56,35 @@ module.exports = {
 				],
 			},
 			{
-				text: '测试',
-				items: [{ text: 'Jest', link: '/test/jest/' }],
+				text: '工具软件',
+				items: [
+					// {
+					// 	text: '编程软件',
+					// 	items: [
+					// 		{
+					// 			text: 'nvm',
+					// 			link: '/vuepress/'
+					// 		},
+					// 		{
+					// 			text: 'nrm',
+					// 			link: '/vuepress/'
+					// 		}
+					// 	]
+					// },
+					{
+						text: '效率提升',
+						items: [
+							{
+								text: 'nvm',
+								link: '/tools/nvm/'
+							},
+							{
+								text: 'nrm',
+								link: '/tools/nrm/'
+							}
+						]
+					}
+				],
 			},
 			{
 				text: '数据库',
@@ -51,6 +95,7 @@ module.exports = {
 				items: [
 					{ text: 'vuepresss', link: '/vuepress/' },
 					{ text: '问题记录', link: '/tutorial/' },
+					{ text: 'Jest', link: '/test/jest/' }
 				],
 			},
 			{
@@ -72,7 +117,11 @@ module.exports = {
 			'/interview/': require('./sidebars/interview'),
 			'/frontend/js/': require('./sidebars/js'),
 			'/ts/': require('./sidebars/ts'),
-			'/webpack/': require('./sidebars/webpack')
+			'/webpack/': require('./sidebars/webpack'),
+			'/PM2/': require('./sidebars/pm2'),
+			'/Linux/': require('./sidebars/Linux'),
+			'/Nginx/': require('./sidebars/nginx'),
+
 		},
 		search: true,
 		searchMaxSuggestions: 10,
@@ -86,16 +135,16 @@ module.exports = {
 		// 		/* options */
 		// 	},
 		// ],
-		[
-			'vuepress-plugin-comment',
-			{
-				choosen: 'valine',
-				options: {
-					el: '#valine-vuepress-comment',
-					appId: 'FwTRWoTSyKuhSXy3qbMD13lC-gzGzoHsz',
-					appKey: '52RetgYIRghU7v9sIDrYzYOh',
-				},
-			},
-		],
+		// [
+		// 	'vuepress-plugin-comment',
+		// 	{
+		// 		choosen: 'valine',
+		// 		options: {
+		// 			el: '#valine-vuepress-comment',
+		// 			appId: 'FwTRWoTSyKuhSXy3qbMD13lC-gzGzoHsz',
+		// 			appKey: '52RetgYIRghU7v9sIDrYzYOh',
+		// 		},
+		// 	},
+		// ],
 	]
 }
