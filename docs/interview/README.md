@@ -1,46 +1,38 @@
 # JS
 
-## 防抖和节流
-限制函数的执行次数
+## 判断空对象
+* JSON.stringify()
+* for in 判断
+* Object.keys()
+* Object.getOwnPropertyNames()
 
-1. 防抖：通过setTimeout 的方式，在一定时间间隔内，将多次触发变成一次
-2. 节流：减少一段时间内的触发频率
+## delete 和Vue.delete
+这两种方法对于对象来说其实是没有区别的，使用方法会直接删除对象的属性（物理删除）
 
-````js
-/**
- * 函数防抖
- * 重点处理this指向和参数传递
- * @param {*} fn 
- * @returns 
- */
-function debounce (fn, timer) {
-	let t = null
-	return function() {
-		const firstClick = !t
-		if (t) clearTimeout(t)
-		if (firstClick) {
-			fn.apply(this, arguments)
-		}
-		t = setTimeout(() => {
-			t = null
-		}, timer)
-	}
+但是这两种方法对于数组来说就有区别了。
+```
+let arr = [1,2,3,4,5]
+delete arr[2]  //[1,2,empty,4,5]
+Vue.delete arr[2]  //[1,2,4,5]
+```
+delete只是被删除的元素变成了 empty/undefined 其他的元素的键值还是不变。数组长度也不变。（逻辑删）
+Vue.delete是直接删除该元素，长度发生变化。（物理删）
+
+## 移动端适配
+```js
+// postcss.config.js
+const postcssNesting = require('postcss-nesting')
+const postcssPx2Viewport = require('postcss-px-to-viewport')
+
+module.exports = {
+  plugins: [
+    postcssNesting(),
+    postcssPx2Viewport({
+      viewportWidth: 375
+    })
+  ]
 }
-
-/**
- * 函数节流
- */
-function throttle (fn, delay) {
-	let begin = 0
-	return function () {
-		const cur = Date.now()
-		if (cur - brgin > delay) {
-			fn.apply(this, arguments)
-			begin = cur
-		} 
-	}
-}
-````
+```
 
 ## this指向的四种绑定规则
 

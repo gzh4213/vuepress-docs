@@ -119,7 +119,7 @@ module.exports = {
 			'/ts/': require('./sidebars/ts'),
 			'/webpack/': require('./sidebars/webpack'),
 			'/PM2/': require('./sidebars/pm2'),
-			'/Linux/': require('./sidebars/Linux'),
+			'/Linux/': require('./sidebars/linux'),
 			'/Nginx/': require('./sidebars/nginx'),
 
 		},

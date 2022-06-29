@@ -1,4 +1,4 @@
-# 重写方法
+# 手写方法
 
 ## new 重写
 ```js
@@ -235,6 +235,216 @@ p1.say()
 // test.bind(obj)(1, 2)
 ```
 
+## forEach
+```js
+Array.prototype.myForEach = function (fn) {
+  var arr = this
+  var context = arguments[1] || window
+  if(typeof fn === 'function') {
+    for (var i = 0; i < arr.length; i++) {
+      fn.apply(context, [arr[i], i, arr])
+    }
+  } else {
+    throw new Error('参数必须传入一个方法')
+  }
+}
+
+var arr = [1,2,3,4]
+arr.myForEach((item, index, arr) => {
+  console.log(item, index, arr)
+})
+```
+
+## map
+```js
+Array.prototype.myMap = function(fn) {
+  var arr = this
+  var context = arguments[1] || {}
+  var res = []
+  if (typeof fn === 'function') {
+    for (let i = 0; i < arr.length; i++) {
+      res.push(fn.apply(context, [arr[i], i, arr])) 
+    }
+  } else {
+    throw new Error('参数必须传入一个方法')
+  }
+  return res
+}
+
+var arr = [1,2,3,4]
+var obj = {}
+
+var res = arr.map(function(item, index, arr) {
+  console.log(item, index, arr)
+  return item * 2
+}, obj)
+console.log(res);
+
+```
+
+## filter
+```js
+Array.prototype.myFilter = function(fn) {
+  var arr = this
+  var context = arguments[1] || {}
+  var res = []
+  if (typeof fn === 'function') {
+    for (let i = 0; i < arr.length; i++) {
+      fn.apply(context, [arr[i], i, arr]) ? res.push(arr[i]) : undefined
+    }
+  } else {
+    throw new Error('参数必须传入一个方法')
+  }
+  return res
+}
+
+var arr = [1,2,3,4]
+var obj = {}
+
+var res = arr.myFilter(function(item, index, arr) {
+  console.log(item, index, arr)
+  return item % 2
+}, obj)
+console.log(res);
+
+```
+
+## some every
+```js
+
+
+Array.prototype.mySome = function(fn) {
+  var arr = this
+  var context = arguments[1] || {}
+  var res = false
+  if (typeof fn === 'function') {
+    for (let i = 0; i < arr.length; i++) {
+      if(fn.apply(context, [arr[i], i, arr])) {
+        res = true
+        break
+      }
+    }
+  } else {
+    throw new Error('参数必须传入一个方法')
+  }
+  return res
+}
+
+Array.prototype.myEvery = function(fn) {
+  var arr = this
+  var context = arguments[1] || {}
+  var res = true
+  if (typeof fn === 'function') {
+    for (let i = 0; i < arr.length; i++) {
+      if(!fn.apply(context, [arr[i], i, arr])) {
+        res = false
+        break
+      }
+    }
+  } else {
+    throw new Error('参数必须传入一个方法')
+  }
+  return res
+}
+
+var arr = [1,2,3,4]
+var obj = {}
+
+var res = arr.myEvery(function(item, index, arr) {
+  console.log(item, index, arr)
+  return item % 2
+}, obj)
+console.log(res);
+```
+
+## reduce
+```js
+var arr = [1,2,3,4]
+var obj = {}
+
+arr.reduce((prev, item, index, arr) => {
+  console.log(prev, item, index, arr)
+  return prev + item
+})
+
+Array.prototype.myReduce = function (fn, prev) {
+  var arr = this
+  var i = 0
+  if (typeof fn !== 'function') {
+    throw new Error('第一个参数必须是函数')
+  } 
+
+  // if (typeof prev === 'undefined') {
+  //   prev = arr[0]
+  //   for(var i = 1; i < arr.length; i++) {
+  //     prev = fn(prev, arr[i], i, arr)
+  //   }
+  // } else {
+  //   for(var i = 0; i < arr.length; i++) {
+  //     prev = fn(prev, arr[i], i, arr)
+  //   }
+  // }
+
+  if (typeof prev === 'undefined') {
+    prev = arr[0]
+    i = 1
+  }
+  for(; i < arr.length; i++) {
+    prev = fn(prev, arr[i], i, arr)
+  }
+
+  return prev
+}
+
+const res1 = arr.myReduce((prev, item, index, arr) => {
+  console.log(prev, item, index, arr)
+  return prev + item
+})
+
+console.log(res1)
+```
+
+## 防抖和节流
+限制函数的执行次数
+
+1. 防抖：通过setTimeout 的方式，在一定时间间隔内，将多次触发变成一次
+2. 节流：减少一段时间内的触发频率
+
+````js
+/**
+ * 函数防抖
+ * 重点处理this指向和参数传递
+ * @param {*} fn 
+ * @returns 
+ */
+function debounce (fn, timer) {
+	let t = null
+	return function() {
+		const firstClick = !t
+		if (t) clearTimeout(t)
+		if (firstClick) {
+			fn.apply(this, arguments)
+		}
+		t = setTimeout(() => {
+			t = null
+		}, timer)
+	}
+}
+
+/**
+ * 函数节流
+ */
+function throttle (fn, delay) {
+	let begin = 0
+	return function () {
+		const cur = Date.now()
+		if (cur - brgin > delay) {
+			fn.apply(this, arguments)
+			begin = cur
+		} 
+	}
+}
+````
 ## 柯里化 反柯里化
 ```js
 // 柯里化
