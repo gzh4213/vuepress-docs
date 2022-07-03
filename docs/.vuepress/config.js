@@ -48,6 +48,10 @@ module.exports = {
 				]
 			},
 			{
+				text: '算法',
+				link: '/ALG/'
+			},
+			{
 				text: '工程化',
 				items: [
 					{ text: 'rollup', link: '/rollup/' },
@@ -121,6 +125,7 @@ module.exports = {
 			'/PM2/': require('./sidebars/pm2'),
 			'/Linux/': require('./sidebars/linux'),
 			'/Nginx/': require('./sidebars/nginx'),
+			'/ALG/': require('./sidebars/alg'),
 
 		},
 		search: true,

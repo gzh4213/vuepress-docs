@@ -1,5 +1,21 @@
 # Vue
 
+```
+对template的解析步骤大致分为以下几步：
+
+将html文档片段解析成ast描述符
+
+将ast描述符解析成字符串
+
+生成render函数
+
+  *  1.将temmplate解析ast tree
+  *  2.将ast tree转换成render语法字符串
+  *  3.生成render方法
+  */
+/**
+```
+
 ## 1.Vue组件之间通信方式有哪些？
 
 * props
@@ -139,3 +155,65 @@ watch 和 watchEffect 区别
 
 ## 25.vue为什么只能有一个根元素
 Vue3支持多个根节点
+
+## 26.一个完整的父子组件生命周期：
+```
+父beforeCreate
+父created
+父beforeMount
+子beforeCreate
+子created
+子beforeMount
+子mounted
+父mounted
+父beforeUpdate
+子beforeUpdate
+子updated
+父updated
+父beforeDestroy
+子beforeDestroy
+子destroyed
+父destroyed
+
+```
+
+## 27.v-model
+
+v-model 在内部为不同的输入元素使用不同的 property 并抛出不同的事件：
+
+* text 和 textarea 元素使用 value property 和 input 事件；
+* checkbox 和 radio 使用 checked property 和 change 事件；
+* select 字段将 value 作为 prop 并将 change 作为事件。
+
+```js
+// Vue2
+Vue.component('base-checkbox', {
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
+  props: {
+    checked: Boolean
+  },
+  template: `
+    <input
+      type="checkbox"
+      v-bind:checked="checked"
+      v-on:change="$emit('change', $event.target.checked)"
+    >
+  `
+})
+
+// Vue3
+<script setup>
+defineProps(['modelValue'])
+defineEmits(['update:modelValue'])
+</script>
+
+<template>
+  <input
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+  />
+</template>
+```

@@ -6,7 +6,10 @@ module.exports = [
       'rewrite',
       '',
       'CSS',
-      'Vue'
+      'Vue',
+      'result',
+      'lixiang',
+      '2022'
     ]
   }
 ]

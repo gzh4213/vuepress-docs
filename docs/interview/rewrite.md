@@ -445,6 +445,64 @@ function throttle (fn, delay) {
 	}
 }
 ````
+
+## 发布订阅模式
+```js
+class EventEmiteer {
+  constructor() {
+    // 用来存放注册的事件和回调
+    this._events = {}
+  }
+
+  on(eventName, callback) {
+    const callbacks = this._events[eventName] || []
+    callbacks.push(callback)
+    this._events[eventName] = callbacks
+  }
+
+  emit(eventName, ...args) {
+    const callbacks = this._events[eventName]
+    if (callbacks) {
+      callbacks.forEach(cb => cb.apply(this, args))
+    }
+  }
+
+  off(eventName, callback) {
+    let callbacks = this._events[eventName]
+    if (callbacks && callback) {
+      let cbIndex = callbacks.indexOf(callback)
+      callbacks = callbacks.splice(cbIndex, 1)
+    }
+  }
+
+  once(eventName, callback) {
+    const fn = (...args) => {
+      callback.apply(this, args)
+      this.off(eventName, fn)
+    }
+    this.on(eventName, fn)
+  }
+}
+
+const o = new EventEmiteer()
+o.on('post', (...args) => {
+  console.log(1, args)
+})
+
+o.once('post', (...args) => {
+  console.log('once', args)
+})
+
+const fn = (...args) => {
+  console.log(2, args)
+}
+o.on('post', fn)
+
+// o.off('post', fn)
+o.emit('post', 1, false, {name: '张三'})
+o.emit('post', 1, false, {name: '张三'})
+
+```
 ## 柯里化 反柯里化
 ```js
 // 柯里化
@@ -473,3 +531,45 @@ Function.prototype.uncurrying = function() {
 const push = [].push.uncurrying()
 push(obj, 'ddd', 'fff')
 ```
+## PromiseAll
+```js
+Promise.myPromiseAll = function(promises) {
+  if (!Array.isArray(promises)) {
+    throw new Error('it is not a array')
+  }
+
+  let pResult = []
+  let pCount = 0
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i < promises.length; i++) {
+      Promise.resolve(promises[i]).then(pValue => {
+        pCount++
+        pResult[i] = pValue
+        if (pCount === promises.length) {
+          resolve(pResult)
+        }
+      }, (err) => {
+        return reject(err)
+      })
+      
+    }
+  })
+}
+
+let promise1 = new Promise(function(resolve) {
+  resolve(1);
+});
+let promise2 = new Promise(function(resolve) {
+  resolve(2);
+});
+let promise3 = new Promise(function(resolve) {
+  resolve(3);
+});
+
+let promiseAll = Promise.myPromiseAll([promise1, promise2, promise3]);
+promiseAll.then(res => {
+  console.log(res)
+})
+
+```
+
