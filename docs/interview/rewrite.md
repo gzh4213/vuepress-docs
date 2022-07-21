@@ -573,3 +573,102 @@ promiseAll.then(res => {
 
 ```
 
+## promise
+```js
+const PENDING = "PENDING";
+const FULFILLED = "FULFILLED";
+const REJECTED = "REJECTED";
+class Promise {
+  constructor(executor) {
+    this.value = undefined;
+    this.reason = undefined;
+    this.status = PENDING;
+    this.onFulfilledCallbacks = [];
+    this.onRejectedCallbacks = [];
+    const resolve = (value) => {
+      if (this.status === PENDING) {
+        this.value = value;
+        this.status = FULFILLED;
+        this.onFulfilledCallbacks.forEach((cb) => cb(this.value));
+      }
+    };
+    const reject = (reason) => {
+      if (this.status === PENDING) {
+        this.reason = reason;
+        this.status = REJECTED;
+        this.onRejectedCallbacks.forEach((cb) => cb(this.reason));
+      }
+    };
+    try {
+      executor(resolve, reject);
+    } catch (e) {
+      reject(e);
+    }
+  }
+  then(onFulfilled, onRejected) {
+    onFulfilled = typeof onFulfilled === "function" ? onFulfilled : (v) => v;
+    onRejected =
+      typeof onRejected === "function"
+        ? onRejected
+        : (e) => {
+            throw e;
+          };
+    let promise2 = new Promise((resolve, reject) => {
+      if (this.status === FULFILLED) {
+        // 添加异常捕获
+        try {
+          // 返回值作为 resolve 的参数值
+          let x = onFulfilled(this.value);
+          resolve(x);
+        } catch (e) {
+          reject(e);
+        }
+      }
+      if (this.status === REJECTED) {
+        try {
+          let x = onRejected(this.reason);
+          resolve(x);
+        } catch (e) {
+          reject(e);
+        }
+      }
+      if (this.status === PENDING) {
+        // 使用匿名函数，将 resovle 与 onFulfilled 捆绑在一起
+        this.onFulfilledCallbacks.push(() => {
+          try {
+            let x = onFulfilled(this.value);
+            resolve(x);
+          } catch (e) {
+            reject(e);
+          }
+        });
+        this.onRejectedCallbacks.push(() => {
+          try {
+            let x = onRejected(this.reason);
+            resolve(x);
+          } catch (e) {
+            reject(e);
+          }
+        });
+      }
+    });
+    return promise2;
+  }
+}
+
+```
+
+## instanceof
+```js
+  function instanst_of(L, R) {
+      const o = R.prototype
+      let i = L.__proto__
+      while (true) {
+          if (i === null) return false
+          if (i === o) return true
+          i = i.__proto__
+      }
+  }
+
+```
+
