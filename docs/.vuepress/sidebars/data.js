@@ -20,5 +20,9 @@ module.exports = [
 	{
 		title: 'node',
 		children: ['/data/node/']
+	},
+	{
+		title: '性能优化',
+		children: ['/data/performance/']
 	}
 ]

@@ -23,6 +23,7 @@ module.exports = {
 					{ text: 'React', link: '/frontend/react/' },
 					{ text: 'typesript', link: '/ts/'},
 					{ text: 'npm', link: '/npm/' },
+					{ text: '开发规范', link: '/specification/' },
 					{ text: '资料', link: '/data/' },
 					{
 						text: '面试',
@@ -126,6 +127,7 @@ module.exports = {
 			'/Linux/': require('./sidebars/linux'),
 			'/Nginx/': require('./sidebars/nginx'),
 			'/ALG/': require('./sidebars/alg'),
+			'/specification/': require('./sidebars/specification'),
 
 		},
 		search: true,
