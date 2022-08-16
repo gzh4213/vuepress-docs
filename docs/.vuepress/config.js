@@ -103,12 +103,12 @@ module.exports = {
 					{ text: 'Jest', link: '/test/jest/' }
 				],
 			},
-			{
-				text: 'GitHub',
-				link: 'https://github.com/gzh4213',
-				target: '_blank',
-				rel: 'noopener noreferrer',
-			},
+			// {
+			// 	text: 'GitHub',
+			// 	link: 'https://github.com/gzh4213',
+			// 	target: '_blank',
+			// 	rel: 'noopener noreferrer',
+			// },
 		],
 		sidebarDepth: 4,
 		sidebar: {
