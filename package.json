@@ -1,21 +1,19 @@
 {
-  "name": "vue-press-blog",
+  "name": "vitepress-docs",
   "version": "1.0.0",
-  "description": "",
+  "description": "前端vitepress站点",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "vitepress"
+  ],
+  "author": "guozhen",
   "license": "ISC",
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.8.2",
-    "@vuepress/plugin-blog": "^1.9.4",
-    "vuepress": "^1.9.7"
-  },
-  "dependencies": {
-    "vuepress-plugin-comment": "^0.7.3"
+    "vitepress": "^1.0.0-alpha.13"
   }
 }

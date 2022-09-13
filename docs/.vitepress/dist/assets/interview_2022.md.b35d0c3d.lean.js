@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,a as l}from"./app.19d754c3.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"interview/2022.md","lastUpdated":null}'),e={name:"interview/2022.md"},p=l("",31),t=[p];function i(r,o,c,u,b,C){return a(),n("div",null,t)}const y=s(e,[["render",i]]);export{m as __pageData,y as default};
