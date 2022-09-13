@@ -27,5 +27,5 @@ jobs:
         TARGET_REPO: gzh4213/gzh4213.github.io
         TARGET_BRANCH: master
         BUILD_SCRIPT: npm install && npm run build
-        BUILD_DIR: docs/.vuepress/dist/
+        BUILD_DIR: docs/.vitepress/dist/
         CNAME: docs.gzh4213.com
