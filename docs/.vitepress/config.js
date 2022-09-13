@@ -1,51 +1,30 @@
-module.exports = {
-  title: '热爱生活',
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  title: '城郭小镇',
   description: '前端学习文档整理',
+  appearance: true, // 是否启动暗黑模式
+  ignoreDeadLinks: true, // 忽略死链接
+  lastUpdated: true, // 最近更新时间 通过themeConfig.lastUpdatedText自定义文本
   markdown: {
     lineNumbers: true, // 显示代码块行数
   },
-  evergreen: true,
   themeConfig: {
     logo: '/docs.svg',
     // navbar: false,  // 禁用导航栏
     nav: [
       // 导航栏设置
-      { text: '首页', link: '/' },
+      {
+        text: '首页',
+        link: '/'
+      },
       {
         text: '前端',
-        items: [
-          {
-            text: '原生js',
-            link: '/frontend/js/'
-          },
-          { text: 'Vue', link: '/frontend/vue/' },
-          { text: 'React', link: '/frontend/react/' },
-          { text: 'typesript', link: '/ts/' },
-          { text: 'npm', link: '/npm/' },
-          { text: '开发规范', link: '/specification/' },
-          { text: '资料', link: '/data/' },
-          {
-            text: '面试',
-            link: '/interview/'
-          }
-        ],
+        link: '/frontend/js/'
       },
       {
         text: '后端',
-        items: [
-          {
-            text: 'PM2',
-            link: '/PM2/'
-          },
-          {
-            text: 'LINUX',
-            link: '/Linux/'
-          },
-          {
-            text: 'Nginx',
-            link: '/Nginx/'
-          }
-        ]
+        link: '/backend/PM2/'
       },
       {
         text: '算法',
@@ -53,92 +32,106 @@ module.exports = {
       },
       {
         text: '工程化',
-        items: [
-          { text: 'rollup', link: '/rollup/' },
-          { text: 'vite', link: '/vite/' },
-          { text: 'webpack', link: '/webpack/' },
-        ],
+        link: '/engineering/rollup/'
       },
       {
         text: '工具软件',
-        items: [
-          // {
-          // 	text: '编程软件',
-          // 	items: [
-          // 		{
-          // 			text: 'nvm',
-          // 			link: '/vuepress/'
-          // 		},
-          // 		{
-          // 			text: 'nrm',
-          // 			link: '/vuepress/'
-          // 		}
-          // 	]
-          // },
-          {
-            text: '效率提升',
-            items: [
-              {
-                text: 'nvm',
-                link: '/tools/nvm/'
-              },
-              {
-                text: 'nrm',
-                link: '/tools/nrm/'
-              }
-            ]
-          }
-        ],
-      },
-      {
-        text: '数据库',
-        link: '/database/',
+        link: '/tools/nvm/'
       },
       {
         text: '更多',
-        items: [
-          { text: 'vuepresss', link: '/vuepress/' },
-          { text: '问题记录', link: '/tutorial/' },
-          { text: 'Jest', link: '/test/jest/' }
-        ],
-      },
-      // {
-      // 	text: 'GitHub',
-      // 	link: 'https://github.com/gzh4213',
-      // 	target: '_blank',
-      // 	rel: 'noopener noreferrer',
-      // },
+        link: '/more/vuepress/'
+      }
     ],
     sidebar: {
       // 侧边栏设置
-      // '/data/': require('./sidebars/data'),
-      // '/frontend/vue/': require('./sidebars/vue'),
-      // '/test/jest/': require('./sidebars/test'),
-      // '/tutorial/': require('./sidebars/tutorial'),
-      // '/vuepress/': require('./sidebars/vuepress'),
-      // '/rollup/': require('./sidebars/rollup'),
-      // '/interview/': require('./sidebars/interview'),
-      // '/frontend/js/': require('./sidebars/js'),
-      // '/ts/': require('./sidebars/ts'),
-      // '/webpack/': require('./sidebars/webpack'),
-      // '/PM2/': require('./sidebars/pm2'),
-      // '/Linux/': require('./sidebars/linux'),
-      // '/Nginx/': require('./sidebars/nginx'),
-      // '/ALG/': require('./sidebars/alg'),
-      // '/specification/': require('./sidebars/specification'),
-  
+      '/frontend/': [
+        {
+          text: '',
+          items: [
+            {
+              text: '原生js',
+              link: '/frontend/js/'
+            },
+            { text: 'Vue', link: '/frontend/vue/' },
+            { text: 'React', link: '/frontend/react/' },
+            { text: 'typesript', link: '/frontend/ts/' },
+            { text: 'npm', link: '/frontend/npm/' },
+            { text: '开发规范', link: '/frontend/specification/' },
+            { text: '资料', link: '/frontend/data/' },
+            {
+              text: '面试',
+              link: '/frontend/interview/'
+            }
+          ],
+        }
+      ],
+      '/backend/': [
+        {
+          text: '',
+          items: [
+            {
+              text: 'PM2',
+              link: '/backend/PM2/'
+            },
+            {
+              text: 'LINUX',
+              link: '/backend/Linux/'
+            },
+            {
+              text: 'Nginx',
+              link: '/backend/Nginx/'
+            }
+          ]
+        },
+        {
+          text: '',
+          items: [
+            {
+              text: '数据库',
+              link: '/backend/database/'
+            }
+          ]
+        },
+      ],
+      '/engineering/': [{
+        text: '',
+        items: [
+          { text: 'rollup', link: '/engineering/rollup/' },
+          { text: 'vite', link: '/engineering/vite/' },
+          { text: 'webpack', link: '/engineering/webpack/' },
+        ],
+      }],
+      '/tools/': [{
+        text: '',
+        items: [
+          {
+            text: 'nvm',
+            link: '/tools/nvm/'
+          },
+          {
+            text: 'nrm',
+            link: '/tools/nrm/'
+          }
+        ]
+      }],
+      '/more/': [{
+        text: '',
+        items: [
+          { text: 'vuepresss', link: '/more/vuepress/' },
+          { text: '问题记录', link: '/more/tutorial/' },
+          { text: 'Jest', link: '/more/test/jest/' }
+        ],
+      }],
     },
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-present Evan You'
+      copyright: 'Copyright © 2019-present Guo Zhen'
+    },
+    lastUpdatedText: '最后更新',
+    docFooter: {
+      prev: '上一节',
+      next: '下一节'
     }
-  },
-  sidebarDepth: 4,
-  search: {
-    maxSuggestions: 10
-  },
-  lastUpdated: '最后更新', // string | boolean
-  plugins: [
-		['@vuepress/back-to-top'],
-  ]
-}
+  }
+})

@@ -1,29 +1,29 @@
 ---
 layout: home
 hero:
-  name: VitePress
-  text: Vite & Vue powered static site generator.
-  tagline: Lorem ipsum...
+  name: 城郭小镇
+  text: 丢掉幻想，准备战斗.
+  tagline: 知行合一
   image:
     src: /docs.svg
-    alt: VitePress
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /guide/what-is-vitepress
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/vuejs/vitepress
+    alt: docs
+  # actions:
+  #   - theme: brand
+  #     text: Get Started
+  #     link: /guide/what-is-vitepress
+  #   - theme: alt
+  #     text: View on GitHub
+  #     link: https://github.com/vuejs/vitepress
 features:
   - icon: ⚡️
-    title: Vite, The DX that can't be beat
-    details: Lorem ipsum...
+    title: 前端
+    details: JavaScript|Vue|React|TS
   - icon: 🖖
-    title: Power of Vue meets Markdown
-    details: Lorem ipsum...
+    title: 后端
+    details: Linux | Nginx | Shell
   - icon: 🛠️
-    title: Simple and minimal, always
-    details: Lorem ipsum...
+    title: 工程化
+    details: Rollup | Webpack | Vite
 
 ---
 
