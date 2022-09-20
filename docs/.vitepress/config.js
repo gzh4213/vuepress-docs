@@ -59,11 +59,40 @@ export default defineConfig({
             { text: 'npm', link: '/frontend/npm/' },
             { text: '开发规范', link: '/frontend/specification/' },
             { text: '资料', link: '/frontend/data/' },
-            {
-              text: '面试',
-              link: '/frontend/interview/'
-            }
           ],
+        },
+        {
+          text: '面试',
+          items: [
+            {
+              text: 'JS',
+              link: '/frontend/interview/'
+            },
+            {
+              text: 'lixiang',
+              link: '/frontend/interview/lixiang'
+            },
+            {
+              text: '输出结果',
+              link: '/frontend/interview/result'
+            },
+            {
+              text: '手写方法',
+              link: '/frontend/interview/rewrite'
+            },
+            {
+              text: 'Vue',
+              link: '/frontend/interview/Vue'
+            },
+            {
+              text: 'CSS',
+              link: '/frontend/interview/CSS'
+            },
+            {
+              text: '2022',
+              link: '/frontend/interview/2022'
+            },
+          ]
         }
       ],
       '/backend/': [
