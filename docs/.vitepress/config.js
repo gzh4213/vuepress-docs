@@ -47,18 +47,102 @@ export default defineConfig({
       // 侧边栏设置
       '/frontend/': [
         {
-          text: '',
+          text: '原生js',
           items: [
             {
-              text: '原生js',
-              link: '/frontend/js/'
+              text: '基础知识',
+              link: '/frontend/js/native'
             },
-            { text: 'Vue', link: '/frontend/vue/' },
-            { text: 'React', link: '/frontend/react/' },
-            { text: 'typesript', link: '/frontend/ts/' },
-            { text: 'npm', link: '/frontend/npm/' },
-            { text: '开发规范', link: '/frontend/specification/' },
-            { text: '资料', link: '/frontend/data/' },
+            {
+              text: '数组方法',
+              link: '/frontend/js/'
+            }
+          ]
+        },
+        {
+          text: 'Vue',
+          items: [
+            {
+              text: 'Vue',
+              link: '/frontend/vue/'
+            },
+            {
+              text: 'API',
+              link: '/frontend/vue/API'
+            },
+            {
+              text: 'Pinia',
+              link: '/frontend/vue/Pinia'
+            }
+          ]
+        },
+        {
+          text: 'React',
+          items: [
+            {
+              text: 'React',
+              link: '/frontend/react/'
+            }
+          ]
+        },
+        {
+          text: 'TS',
+          items: [
+            {
+              text: 'TS',
+              link: '/frontend/ts/'
+            },
+            {
+              text: '配置',
+              link: '/frontend/ts/config'
+            }
+          ]
+        },
+        {
+          text: 'NPM',
+          items: [
+            {
+              text: 'NPM',
+              link: '/frontend/npm/'
+            }
+          ]
+        },
+        {
+          text: '开发规范',
+          items: [
+            {
+              text: '规范',
+              link: '/frontend/specification/'
+            },
+            {
+              text: 'vue3-ts',
+              link: '/frontend/specification/vue3-ts'
+            }
+          ]
+        },
+        {
+          text: '资料',
+          items: [
+            {
+              text: '汇总',
+              link: '/frontend/data/'
+            },
+            {
+              text: 'redis',
+              link: '/frontend/data/redis'
+            },
+            {
+              text: 'sql',
+              link: '/frontend/data/sql/'
+            },
+            {
+              text: 'node',
+              link: '/frontend/data/node/'
+            },
+            {
+              text: '性能',
+              link: '/frontend/data/performance/'
+            },
           ],
         },
         {
@@ -144,14 +228,29 @@ export default defineConfig({
           }
         ]
       }],
-      '/more/': [{
-        text: '',
-        items: [
-          { text: 'vuepresss', link: '/more/vuepress/' },
-          { text: '问题记录', link: '/more/tutorial/' },
-          { text: 'Jest', link: '/more/test/jest/' }
-        ],
-      }],
+      '/more/': [
+        {
+          text: 'Jest',
+          items: [
+            { text: 'Jest', link: '/more/test/jest/' }
+          ],
+        },
+        {
+          text: 'vuepresss',
+          items: [
+            { text: '文档', link: '/more/vuepress/' },
+            { text: '语法', link: '/more/vuepress/directory-structure' },
+          ],
+        },
+        {
+          text: '问题记录',
+          items: [
+            { text: 'github', link: '/more/tutorial/' },
+            { text: 'pac', link: '/more/tutorial/pac' },
+            { text: 'ssh', link: '/more/tutorial/ssh' },
+          ],
+        }
+      ],
     },
     footer: {
       message: 'Released under the MIT License.',
