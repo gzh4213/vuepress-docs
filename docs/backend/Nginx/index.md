@@ -138,6 +138,8 @@ location /img/ {
 ```
 若按照这种配置的话，则访问/img/目录下的文件时，nginx会去/var/www/image/img/目录下找文件
 
+
+### 配置文件注解 
 ```bash
 #user  nginx;
 
@@ -198,6 +200,8 @@ http {
         location / {
             root   /www/wwwroot/demo/;
             index  index.html index.htm;
+            deny 114.115.24.34/123; # 拒绝某个IP访问 all：拒绝所有
+            allow 114.115.24.34/123; # 允许某个IP访问
         }
 
         #error_page  404              /404.html;
@@ -231,6 +235,15 @@ http {
         #location ~ /\.ht {
         #    deny  all;
         #}
+    }
+
+    # 设置多个虚拟主机服务
+    server {
+        listen 8001; # 监听某个端口
+        server_name test.gzh4213.com; # 监听域名
+        location / {
+            proxy_pass npm.gzh4213.com;
+        }
     }
 
 
@@ -272,263 +285,7 @@ http {
 }
 ```
 
-## 安装Nginx
-
-依赖环境
-1. 安装gcc
-安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：
-```
-yum install gcc-c++
-```
-
-2. PCRE pcre-devel 安装
-PCRE(Perl Compatible Regular Expressions) 是一个Perl库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式，所以需要在 linux 上安装 pcre 库，pcre-devel 是使用 pcre 开发的一个二次开发库。nginx也需要此库。命令：
-```
-yum install -y pcre pcre-devel
-```
-
-3. zlib 安装
-zlib 库提供了很多种压缩和解压缩的方式， nginx 使用 zlib 对 http 包的内容进行 gzip ，所以需要在 Centos 上安装 zlib 库。
-
-```
-yum install -y zlib zlib-devel
-```
-
-4. OpenSSL 安装
-OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。
-nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http），所以需要在 Centos 安装 OpenSSL 库。
-```
-yum install -y openssl openssl-devel
-```
-
-5. 下载Nginx
-```
-wget https://nginx.org/download/nginx-1.22.0.tar.gz
-```
-
-6. 解压nginx
-```
-tar -zxvf nginx-1.22.0.tar.gz
-cd nginx-1.22.0
-```
-
-7. 执行nginx-configure文件
-```
-[root@ecs-87376 nginx-1.22.0]# ls
-auto  CHANGES  CHANGES.ru  conf  configure  contrib  html  LICENSE  man  README  src
-```
-
-```
-./configure
-```
-
-8. make命令编译
-执行完后会有一个MakeFile文件夹
-
-make 是一个命令工具，它解释 Makefile 中的指令（应该说是规则）。在 Makefile文件中描述了整个工程所有文件的编译顺序、编译规则
-
-```
-make
-make install
-```
-
-9. 查询nginx 安装目录
-```
-[root@ecs-87376 nginx-1.22.0]# whereis nginx
-nginx: /usr/local/nginx
-[root@ecs-87376 nginx-1.22.0]# 
-```
-
-10. 进入安装目录执行nginx
-
-前往安装目录找到sbin 执行nginx
-```
-[root@ecs-87376 nginx-1.22.0]# cd /usr/local/nginx
-[root@ecs-87376 nginx]# ll
-total 16
-drwxr-xr-x 2 root root 4096 Jun 27 01:41 conf
-drwxr-xr-x 2 root root 4096 Jun 27 01:41 html
-drwxr-xr-x 2 root root 4096 Jun 27 01:41 logs
-drwxr-xr-x 2 root root 4096 Jun 27 01:41 sbin
-[root@ecs-87376 nginx]# cd sbin
-[root@ecs-87376 sbin]# ll
-total 4932
--rwxr-xr-x 1 root root 5049624 Jun 27 01:41 nginx
-[root@ecs-87376 sbin]# ./nginx
-[root@ecs-87376 sbin]# 
-```
-
-### yum install 404解决方案
-1. 进入配置文件内，删除所有的.repo文件（也可以备份）
-```bash
-#进入配置文件夹
-cd /etc/yum.repos.d/
-#删除旧的配置文件
-rm *.repo
-#输入“y”回车确认
-```
-
-2. ls确保该目录下的.repo文件已完全删除, 下载可以用的.repo文件
-```bash
-wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo
-```
-如果你没有安装wget，也可以用下面命令： 
-```
-curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo
-```
-3. 运行 yum makecache 生成缓存
-```
-yum makecache
-```
-
-## Linux 防火墙
-
-### firewalld的基本使用
-
-启动： `systemctl start firewalld`
-
-查看状态： `systemctl status firewalld` 
-
-停止：`systemctl stop firewalld `
-
-禁用：`systemctl disable firewalld`
-
-### systemctl
-systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。
-
-启动一个服务：`systemctl start firewalld.service`
-
-关闭一个服务：`systemctl stop firewalld.service`
-
-重启一个服务：`systemctl restart firewalld.service`
-
-显示一个服务的状态：`systemctl status firewalld.service`
-
-在开机时启用一个服务：`systemctl enable firewalld.service`
-
-在开机时禁用一个服务：`systemctl disable firewalld.service`
-
-查看服务是否开机启动：`systemctl is-enabled firewalld.service`
-
-查看已启动的服务列表：`systemctl list-unit-files|grep enabled`
-
-查看启动失败的服务列表：`systemctl --failed`
-
-### 配置firewalld-cmd
-
-查看版本： `firewall-cmd --version`
-
-查看帮助： `firewall-cmd --help`
-
-显示状态： `firewall-cmd --state`
-
-查看所有打开的端口： `firewall-cmd --zone=public --list-ports`
-
-更新防火墙规则： `firewall-cmd --reload`
-
-查看区域信息:  `firewall-cmd --get-active-zones`
-
-查看指定接口所属区域： `firewall-cmd --get-zone-of-interface=eth0`
-
-拒绝所有包：`firewall-cmd --panic-on`
-
-取消拒绝状态： `firewall-cmd --panic-off`
-
-查看是否拒绝： `firewall-cmd --query-panic`
-
-
-**那怎么开启一个端口呢** 
-
-* 添加
-
-`firewall-cmd --zone=public --add-port=80/tcp --permanent`   
-
-（--permanent永久生效，没有此参数重启后失效）
-
-* 重新载入
-
-`firewall-cmd --reload`
-
-* 查看
-
-`firewall-cmd --zone= public --query-port=80/tcp`
-
-* 删除
-
-`firewall-cmd --zone= public --remove-port=80/tcp --permanent`
-
-## nginx 开机自启动
-1. 如果用yum install命令安装的，yum命令会自动创建nginx.service文件，直接用命令
-```
-systemcel enable nginx.service
-```
-
-2.如果使用源码手动编译的则需要手动创建 nginx.service 服务文件。
-
-在系统服务目录里创建nginx.service文件
-```
-vi /lib/systemd/system/nginx.service
-```
-
-内容如下
-```
-[Unit]
-Description=nginx
-After=network.target
-  
-[Service]
-Type=forking
-ExecStart=/usr/local/nginx/sbin/nginx
-ExecReload=/usr/local/nginx/sbin/nginx -s reload
-ExecStop=/usr/local/nginx/sbin/nginx -s quit
-PrivateTmp=true
-
-[Install] 
-WantedBy=multi-user.target
-```
-Description:描述服务
-After:描述服务类别
-[Service]服务运行参数的设置
-Type=forking是后台运行的形式
-ExecStart为服务的具体运行命令
-ExecReload为重启命令
-ExecStop为停止命令
-PrivateTmp=True表示给服务分配独立的临时空间
-注意：[Service]的启动、重启、停止命令全部要求使用绝对路径
-[Install]运行级别下服务安装的相关设置，可设置为多用户，即系统运行级别为3
-
-保存退出
-
-设置开启启动
-
-```
-systemctl enable nginx.service
-```
-
-如果不想开机自启动了，可以使用下面的命令取消开机自启动
-```
-systemctl disable nginx
-```
-
-服务的启动/停止/刷新配置文件/查看状态
-
-```sh
-# systemctl start nginx.service　         启动nginx服务
-
-# systemctl stop nginx.service　          停止服务
-
-# systemctl restart nginx.service　       重新启动服务
-
-# systemctl list-units --type=service     查看所有已启动的服务
-
-# systemctl status nginx.service          查看服务当前状态
-
-# systemctl enable nginx.service          设置开机自启动
-
-# systemctl disable nginx.service         停止开机自启动
-```
-
-## yum
+## yum install nginx
 
 ```bash
 # yum 包安装源配置目录
