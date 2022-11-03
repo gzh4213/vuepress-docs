@@ -188,12 +188,21 @@ export default defineConfig({
               link: '/backend/PM2/'
             },
             {
-              text: 'LINUX',
+              text: 'Nginx',
+              link: '/backend/Nginx/'
+            }
+          ]
+        },
+        {
+          text: 'LINUX',
+          items: [
+            {
+              text: '基本操作命令',
               link: '/backend/Linux/'
             },
             {
-              text: 'Nginx',
-              link: '/backend/Nginx/'
+              text: '文件操作命令',
+              link: '/backend/Linux/file'
             }
           ]
         },
