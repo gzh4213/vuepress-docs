@@ -283,5 +283,54 @@ linux下的交互式文本编辑命令
 
 vim练习工具： vimtutor
 
+## 文件权限修改 - chmod
+修改权限，chmod是change mode的简写形式，有两种修改方式
 
+* 数字表示法
+  * r=4 w=2 x=1 没有权限 - = 0
+  * rwx=4+2+1=7 r-x=4+0+1=5,所以rwxr-xr-w=755
+  * 命令用法：`chmod 755 filename`
 
+* 符号表示法
+  ![符号表示法](../../assets/chmod_img.png)
+  * 用法
+    * chmod 744 filename ---> chmod u=rwx,g=r,0=r filename
+    * 将其他人对文件的写权限去掉：chmod o-w filename (无论之前有没有w权限)
+    * a(all,所有人)= u+g+o(user + group + other)
+    * 给所有用户添加可执行权限：chmod a+x filename
+  * 选项
+    * -R recursive(递归)
+    * chmod -R 750 dirname
+    * chmod -R o-x dirname
+
+> 注：root用户是linux中的超级用户，对文件系统具有不受约束的权限，包括删除系统文件
+
+## chown
+change owner 修改文件的所有者
+* 基本用法
+  * chown username filename
+  * chown adm:adm filename(同时修改所有者和所属组)
+  * -R 选项表示递归修改
+
+## chgrp
+change group 修改文件的所属组
+* 基本用法
+  * chgrp groupname filename
+  * -R 选项表示递归修改
+
+## 通配符
+常用的通配符有三种： *，？，[]，{}
+
+* 通配符：用来模糊搜索文件的符号
+  * 星号*：匹配0个或者多个字符
+  * 问号？：匹配一个字符
+  * 方括号[]：提供限定的可选字符进行匹配
+  * 花括号{}：同上，用touch和mkdir创建文件/目录时用
+* 基础用法：
+  * `ls student*`
+  * `ls student?` `ls student??`
+  * `ls student[ABC]` `ls student[0-9]` `ls student[!0-9]`
+  * `ls student{0..9}`
+
+## find
+实时文件搜索

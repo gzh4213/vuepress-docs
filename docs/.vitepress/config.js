@@ -222,6 +222,24 @@ export default defineConfig({
           { text: 'rollup', link: '/engineering/rollup/' },
           { text: 'vite', link: '/engineering/vite/' },
           { text: 'webpack', link: '/engineering/webpack/' },
+          { 
+            text: 'cli',
+            items: [
+              {
+                text: 'commander',
+                link: '/engineering/cli/commander'
+              }
+            ]
+          },
+          { 
+            text: 'eslint',
+            items: [
+              {
+                text: '配置',
+                link: '/engineering/eslint/config'
+              }
+            ]
+          },
         ],
       }],
       '/tools/': [{
