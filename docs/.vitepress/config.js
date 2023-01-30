@@ -240,6 +240,15 @@ export default defineConfig({
               }
             ]
           },
+          { 
+            text: 'npm私有仓库搭建',
+            items: [
+              {
+                text: 'Verdaccio搭建',
+                link: '/engineering/npm/verdaccio'
+              }
+            ]
+          },
         ],
       }],
       '/tools/': [{
