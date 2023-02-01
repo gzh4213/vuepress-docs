@@ -20,12 +20,44 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: gzh4213/gzh4213.github.io
-        TARGET_BRANCH: master
-        BUILD_SCRIPT: npm install && npm run build
-        BUILD_DIR: docs/.vitepress/dist/
-        CNAME: docs.gzh4213.com
+    - name: deploy
+      run: |
+        # env
+        echo "node version: $(node -v)"
+        echo "npm version: $(npm -v)"
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Build VitePress
+      run: |
+        # Build vuepress project
+        echo "==> Start building"
+        npm run build
+        eval "npm run build"
+        echo "Build success"
+    - name: Deploy to Pages
+      run: |
+        # Change directory to the dest
+        echo "==> Changing directory to docs/.vitepress/dist/ ..."
+        cd docs/.vitepress/dist/
+        
+        echo "==> Prepare to deploy"
+
+        git init
+        git config user.name ${{ github.actor }}
+        git config user.email "${{ secrets.GIT_EMAIL }}"
+        
+        echo "==> Starting deploying"
+        git add .
+        git commit -m 'deploy'
+        git push -f https://username:${{ secrets.ACCESS_TOKEN }}@github.com/gzh4213/gzh4213.github.io.git master:gh-pages
+        rm -fr .git
+        
+        echo "Successfully deployed!"
+          
+        
+        
+        
+        
+        
