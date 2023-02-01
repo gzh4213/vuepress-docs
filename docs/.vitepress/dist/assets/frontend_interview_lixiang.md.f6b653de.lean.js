@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as r,a}from"./app.248772be.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"frontend/interview/lixiang.md"}'),n={name:"frontend/interview/lixiang.md"},l=a("",16),s=[l];function h(o,p,c,i,f,b){return r(),t("div",null,s)}const d=e(n,[["render",h]]);export{u as __pageData,d as default};
