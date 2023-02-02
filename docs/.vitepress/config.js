@@ -34,10 +34,10 @@ export default defineConfig({
         text: '工程化',
         link: '/engineering/rollup/'
       },
-      {
-        text: '工具软件',
-        link: '/tools/nvm/'
-      },
+      // {
+      //   text: '工具软件',
+      //   link: '/tools/nvm/'
+      // },
       {
         text: '更多',
         link: '/more/vuepress/'
@@ -99,11 +99,19 @@ export default defineConfig({
           ]
         },
         {
-          text: 'NPM',
+          text: 'Node',
           items: [
             {
               text: 'NPM',
               link: '/frontend/npm/'
+            },
+            {
+              text: 'nvm',
+              link: '/frontend/nvm/'
+            },
+            {
+              text: 'nrm',
+              link: '/frontend/nrm/'
             }
           ]
         },
@@ -254,14 +262,7 @@ export default defineConfig({
       '/tools/': [{
         text: '',
         items: [
-          {
-            text: 'nvm',
-            link: '/tools/nvm/'
-          },
-          {
-            text: 'nrm',
-            link: '/tools/nrm/'
-          }
+          
         ]
       }],
       '/more/': [
