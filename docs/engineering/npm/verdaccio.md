@@ -2,7 +2,7 @@ Verdaccio 是一个 Node.js 创建的轻量的私有npm proxy registry。Verdacc
 
 ## 安装
 
-安装前本地或服务器先安装node环境，可以使用[nvm安装](../../tools/nvm/index.md)
+安装前本地或服务器先安装node环境，可以使用[nvm安装](../../frontend/nvm/index.md)
 
 ```bash
 # 全局安装verdaccio
@@ -247,7 +247,7 @@ server {
 
 ## 使用
 
-使用[nrm](../../tools/nrm/index.md)指令，管理本地的npm源
+使用[nrm](../../frontend/nrm/index.md)指令，管理本地的npm源
 
 ### 本地添加私有源
 ```bash
