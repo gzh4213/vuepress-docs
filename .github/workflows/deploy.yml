@@ -51,7 +51,7 @@ jobs:
         echo "==> Starting deploying"
         git add .
         git commit -m 'deploy'
-        git push -f https://username:${{ secrets.ACCESS_TOKEN }}@github.com/gzh4213/gzh4213.github.io.git master:gh-pages
+        git push -f https://username:${{ secrets.ACCESS_TOKEN }}@github.com/gzh4213/gzh4213.github.io.git master:master
         rm -fr .git
         
         echo "Successfully deployed!"
