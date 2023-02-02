@@ -34,7 +34,7 @@ jobs:
         # Build vuepress project
         echo "==> Start building"
         npm run build
-        eval "npm run build"
+        # eval "npm run build"
         echo "Build success"
     - name: Deploy to Pages
       run: |
