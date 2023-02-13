@@ -249,11 +249,15 @@ export default defineConfig({
             ]
           },
           { 
-            text: 'npm私有仓库搭建',
+            text: 'npm',
             items: [
               {
-                text: 'Verdaccio搭建',
+                text: 'Verdaccio搭建npm私有库',
                 link: '/engineering/npm/verdaccio'
+              },
+              {
+                text: 'commander',
+                link: '/engineering/npm/commander'
               }
             ]
           },
