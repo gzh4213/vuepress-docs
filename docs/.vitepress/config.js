@@ -24,7 +24,7 @@ export default defineConfig({
       },
       {
         text: '后端',
-        link: '/backend/PM2/'
+        link: '/backend/Node/'
       },
       {
         text: '算法',
@@ -56,6 +56,10 @@ export default defineConfig({
             {
               text: '数组方法',
               link: '/frontend/js/'
+            },
+            {
+              text: '事件循环',
+              link: '/frontend/js/event-loop'
             }
           ]
         },
@@ -99,18 +103,32 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Node',
+          text: 'npm',
           items: [
             {
-              text: 'NPM',
+              text: '常用命令',
               link: '/frontend/npm/'
             },
             {
-              text: 'nvm',
-              link: '/frontend/nvm/'
-            },
+              text: '版本管理',
+              link: '/frontend/npm/version'
+            }
+          ]
+        },
+        {
+          text: 'nvm',
+          items: [
             {
-              text: 'nrm',
+              text: '基础',
+              link: '/frontend/nvm/'
+            }
+          ]
+        },
+        {
+          text: 'nrm',
+          items: [
+            {
+              text: '基础',
               link: '/frontend/nrm/'
             }
           ]
@@ -189,6 +207,19 @@ export default defineConfig({
       ],
       '/backend/': [
         {
+          text: 'Node',
+          items: [
+            {
+              text: 'fs',
+              link: '/backend/Node/index'
+            },
+            {
+              text: 'http',
+              link: '/backend/Node/http'
+            }
+          ]
+        },
+        {
           text: '',
           items: [
             {
@@ -215,15 +246,27 @@ export default defineConfig({
           ]
         },
         {
-          text: '',
+          text: '数据库',
           items: [
             {
-              text: '数据库',
+              text: 'MySql',
               link: '/backend/database/'
+            },
+            {
+              text: 'MongoDB',
+              link: '/backend/database/mongoDB'
             }
           ]
         },
       ],
+      '/ALG/': [{
+        text: '算法',
+        items: [
+          { text: '理论', link: '/ALG/index' },
+          { text: '数组', link: '/ALG/Array' },
+          { text: '二叉树', link: '/ALG/BinaryTree' },
+        ]
+      }],
       '/engineering/': [{
         text: '',
         items: [
