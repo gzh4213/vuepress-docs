@@ -1,4 +1,5 @@
 ## 文件目录结构
+
 ```bash
 dr-xr-xr-x.  25 root root 4.0K Oct 18 23:08 .
 dr-xr-xr-x.  25 root root 4.0K Oct 18 23:08 ..
@@ -34,6 +35,7 @@ drwxr-xr-x    8 root root 4.0K Oct 18 22:46 www
 ```
 
 ### 首字母作用
+
 * 文件的开头对应是 -
 * 目录开头对应的是d
 * 快捷方式对应的是l
@@ -41,6 +43,7 @@ drwxr-xr-x    8 root root 4.0K Oct 18 22:46 www
 * 鼠标键盘等硬件对应的c
 
 ### 权限
+
 * 每三个一组rw-，-为缺少权限
 
 RWX 分别是可读 可写 可执行权限
@@ -58,22 +61,28 @@ RWX 分别是可读 可写 可执行权限
 ![rwx](https://img-blog.csdnimg.cn/img_convert/92bd924f9f13c0285ce8779de4c922a6.png)
 
 ### 第二列
+
 * 代表你有多少文件 和目录里面有多少文件
 
 ### 第三列
+
 * 创建该文件用户的名字  第二个是改文件所属用户组的名字
 * 第一个就是用户名 第二个就是组名
 
 ### 第四列
+
 * 表示改文件和文件夹所属的体积
 
 ### 第五列
+
 * 创建改文件的日期
 
 ### 第六列
+
 * 代表的就是文件或者文件夹等一系列的名称
 
 ### 字段说明
+
 ```bash
 [root@ecs-87376 /]# ls -al
 total 100
@@ -101,6 +110,7 @@ lrwxrwxrwx    1 root root     7 Jun 22  2021 bin -> usr/bin
 ```
 
 ## ls
+
 ls是list的缩写，就是列出当前目录下的文件信息
 
 * -l选项：
@@ -110,21 +120,24 @@ ls是list的缩写，就是列出当前目录下的文件信息
 * -alh:
   * h 已人性化方式显示文件的大小
 
-
 ## cd
-change directory, 变更目录   
+
+change directory, 变更目录
 
 ## pwd
+
 print working directory, 打印工作目录，显示当前所在目录的绝对路径
 
 ## cp
+
 copy简写，复制文件的命令
 
 * 用法1: cp SOURCE DEST(如果DEST不存在则创建，存在则覆盖)
 * 用法2: cp SOURCE1 SOURCE2 SOURCE3 DEST (DEST必须为目录)
 * 用法3: 使用cp拷贝目录， 加 -r 选项：表示递归
 
-## mv 
+## mv
+
 move的简写，移动
 
 * 用法1: mv SOURCE DEST(如果DEST不存在则创建，存在则覆盖)
@@ -132,9 +145,10 @@ move的简写，移动
 * 用法3: 使用mv移动目录
 * 用法4: 重命名 `mv etc etc.bak`
 
-> DEST 如果目标是个文件，会覆盖掉这个文件, 如果目录下有重名的也会被覆盖掉 
+> DEST 如果目标是个文件，会覆盖掉这个文件, 如果目录下有重名的也会被覆盖掉
 
 ## touch
+
 创建空文件
 
 * 基本用法：
@@ -147,6 +161,7 @@ move的简写，移动
   * `touch -t 12323444555 filename`
 
 ## mkdir
+
 创建目录
 
 * 基本用法：
@@ -159,6 +174,7 @@ move的简写，移动
   * `mkdir -p abc/def/ghi`
 
 ## rm
+
 删除文件或者目录
 
 * 基本用法：
@@ -172,6 +188,7 @@ move的简写，移动
 > 还有一个rmdir的命令，但是只能用于删除空目录，平时不如rm实用，所以不常用，这里只是提一下。rmdir和mkdir一样可以接-p选项来递归删除目录
 
 ## cat
+
 concatenate简写，连接的意思。显示文件全部内容
 
 * 基本用法：
@@ -183,6 +200,7 @@ concatenate简写，连接的意思。显示文件全部内容
   * `cat file | grep -i word` 把file内容获取到，筛选出包含word的行内容， -i 不区分大小写
 
 ## head
+
 显示文件内容的头部，默认显示文本文件的头10行
 
 * 基本用法：
@@ -192,6 +210,7 @@ concatenate简写，连接的意思。显示文件全部内容
   * 或者直接用数字， 比如 `head -5 file`,表示显示file前5行
 
 ## tail
+
 显示文件内容的尾部
 
 * 基本用法：
@@ -203,7 +222,9 @@ concatenate简写，连接的意思。显示文件全部内容
   * `tail -f /var/log/message`
 
 ## more
+
 分屏读取文件内容
+
 * 基本用法：`more filename`
   * 前进一行：回车键
   * 前进一屏：空格键
@@ -213,7 +234,9 @@ concatenate简写，连接的意思。显示文件全部内容
   * `history | more` 分屏显示历史命令
 
 ## less
+
 更强大的分屏阅读
+
 * 基本用法： `less filename`
   * 前进或后退一行：支持方向键 ⬆️ ⬇️
   * 前进后退一页：PgUp或b键（back）、PgDn或空格键
@@ -224,8 +247,8 @@ concatenate简写，连接的意思。显示文件全部内容
   * more只能向下翻屏，使用less时，则可以随意上下翻看文件
   * cat和more会加载文件全部内容，less只加载要看的部分，看大文件有用
 
-
 ## vi vim
+
 linux下的交互式文本编辑命令
 
 * 特点：
@@ -241,8 +264,7 @@ linux下的交互式文本编辑命令
   * 输入模式
   * 底线命令行模式
 
-
-![三大模式](../../assets/vim.png)
+![三大模式](/assets/vim.png)
 
 * 命令模式下常用指令
   * i: 从光标当前位置插入，最常用
@@ -284,6 +306,7 @@ linux下的交互式文本编辑命令
 vim练习工具： vimtutor
 
 ## 文件权限修改 - chmod
+
 修改权限，chmod是change mode的简写形式，有两种修改方式
 
 * 数字表示法
@@ -292,7 +315,7 @@ vim练习工具： vimtutor
   * 命令用法：`chmod 755 filename`
 
 * 符号表示法
-  ![符号表示法](../../assets/chmod_img.png)
+  ![符号表示法](/assets/chmod_img.png)
   * 用法
     * chmod 744 filename ---> chmod u=rwx,g=r,0=r filename
     * 将其他人对文件的写权限去掉：chmod o-w filename (无论之前有没有w权限)
@@ -306,19 +329,24 @@ vim练习工具： vimtutor
 > 注：root用户是linux中的超级用户，对文件系统具有不受约束的权限，包括删除系统文件
 
 ## chown
+
 change owner 修改文件的所有者
+
 * 基本用法
   * chown username filename
   * chown adm:adm filename(同时修改所有者和所属组)
   * -R 选项表示递归修改
 
 ## chgrp
+
 change group 修改文件的所属组
+
 * 基本用法
   * chgrp groupname filename
   * -R 选项表示递归修改
 
 ## 通配符
+
 常用的通配符有三种： *，？，[]，{}
 
 * 通配符：用来模糊搜索文件的符号
@@ -333,4 +361,5 @@ change group 修改文件的所属组
   * `ls student{0..9}`
 
 ## find
+
 实时文件搜索
